@@ -6,7 +6,10 @@ import ModalProvider from "@context/ModalProvider";
 import { lazy } from "react";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./configs/muiConfig";
-import RegisterPage from "@pages/RegisterPage";
+import RegisterPage from "@pages/auth/RegisterPage";
+import AuthLayout from "@pages/auth/AuthLayout";
+import LoginPage from "@pages/auth/LoginPage";
+import OTPVerifyPage from "@pages/auth/OtpVerifyPage";
 const HomePage = lazy(() => import("@pages/HomePage"));
 
 const router = createBrowserRouter([
@@ -18,8 +21,21 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/register",
-        element: <RegisterPage />,
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "/register",
+            element: <RegisterPage />,
+          },
+          {
+            path: "/login",
+            element: <LoginPage />,
+          },
+          {
+            path: "/verify-otp",
+            element: <OTPVerifyPage />,
+          },
+        ],
       },
     ],
   },
