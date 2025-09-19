@@ -25,8 +25,8 @@ const RegisterPage = () => {
             Component={TextInput}
           />
           <FormField
-            name="passWord"
-            label="PassWord"
+            name="password"
+            label="Password"
             control={control}
             type="password"
             Component={TextInput}
